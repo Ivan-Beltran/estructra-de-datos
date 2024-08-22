@@ -21,7 +21,7 @@ fun main(){
     println("ingrese operacion: +,-,*,/,^  nota: el simbolo ^representa una potencia")
     operator= readln().toString()
     while (operator=="" || (operator!="+"&& operator!="-"&& operator!="/"&& operator!="*"&& operator!="^")){
-        println("operador invalido , ingresarlo nuevamente")
+        println("operador invalido, ingresarlo nuevamente")
         operator= readln().toString()
     }
 
@@ -33,7 +33,12 @@ fun calculate(numberOne:Double ,numberTow:Double, operator:String){
         "+"-> numberOne+numberTow
         "-"-> numberOne-numberTow
         "*"-> numberOne*numberTow
-        "/"-> numberOne/numberTow
+        "/"-> if(numberTow==0.0){
+            println("no se puede dividir entre 0")
+            
+        }else numberOne/numberTow
+
+
         "^"-> numberOne.pow(numberTow)
         else -> throw IllegalArgumentException("Operación desconocida")
     }
